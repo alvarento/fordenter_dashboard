@@ -1,0 +1,44 @@
+@use 'variables' as *;
+
+.dashboard {
+   padding-top: 1rem;
+   text-align: center;
+   display: flex;
+   flex-direction: column;
+
+   &__title {
+      font-size: min(2rem, 6vw);
+      color: $primary-color;
+      margin-bottom: 2rem;
+   }
+
+   &__metrics {
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+   }
+}
+
+.stat-card {
+   min-width: 300px;
+
+   &__value {
+      color: $second-color;
+      font-size: 1.35rem;
+      text-align: left;
+   }
+
+   &__unit {
+      font-size: .85rem;
+      display: block;
+      color: darkgrey;
+   }
+}
+
+@media (max-width: 668px) {
+   .stat-card {
+      min-width: 90%;
+   }
+}

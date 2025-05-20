@@ -1,0 +1,47 @@
+@use 'variables' as *;
+
+.dropdown {
+   cursor: pointer;
+
+   &__profile-img {
+      border-radius: 50%;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      background: rgba($color: #d3d3d3, $alpha: 0.15);
+   }
+
+   &__user-type {
+      text-align: left;
+      padding: 0 .65rem;
+
+      small {
+         font-size: .8rem;
+      }
+   }
+
+   &__button {
+      display: flex;
+      width: 100%;
+      background-color: inherit;
+      gap: 1.25rem;
+      cursor: pointer;
+
+      span {
+         flex: 1;
+         text-align: left;
+      }
+   }
+}
+
+
+//bootstrap-custom
+.dropdown-item {
+   &:hover {
+      background-color: $primary-color;
+
+      span, i {
+         color: white;
+      }
+   }
+
+
+}

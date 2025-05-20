@@ -1,0 +1,16 @@
+@use 'variables' as *;
+
+.header-container {
+   position: sticky;
+   top: 0;
+   background-color: $body-bg;
+   z-index: 2;
+}
+
+.header {
+   height: 70px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding-top: .4rem;
+}

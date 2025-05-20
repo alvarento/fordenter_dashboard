@@ -1,0 +1,36 @@
+@use 'variables' as *;
+
+.sidebar {
+
+   &__logo {
+      width: 100px;
+      margin-bottom: 2rem;
+   }
+
+   &__nav {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+
+      a {
+         padding: 1rem;
+         text-decoration: none;
+         color: $second-color;
+         font-weight: bold;
+         transition: background 0.2s;
+
+         &.activeLink {
+            background-color: rgba($color: $primary-color, $alpha: 1);
+            border-left: 5px solid $primary-green;
+            cursor: pointer;
+            color: #fff;
+         }
+
+         &:hover {
+            background-color: rgba($color: $primary-color, $alpha: 0.75);
+            cursor: pointer;
+            color: #fff;
+         }
+      }
+   }
+}

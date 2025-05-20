@@ -1,0 +1,45 @@
+<form class="form" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+   <div class="form__fill-info">
+      <div class="form-floating mb-3">
+         <input type="text" class="form-control border-2" id="floatingNome" placeholder="Nome Completo" formControlName="full_name"  
+         required
+         >
+         <label for="floatingNome">Nome*</label>
+         @if (isInvalid('full_name')) {<div class="text-danger">{{getError('full_name')}}</div>}
+      </div>
+      <div class="form-floating mb-3">
+         <input type="email" class="form-control border-2" id="floatingEmail" placeholder="name@example.com" formControlName="email" required>
+         <label for="floatingEmail">Email*</label>
+         @if (isInvalid('email')) {<div class="text-danger">{{getError('email')}}</div>}
+      </div>
+      <div class="form-floating mb-3 position-relative">
+         <input [type]="showPassword ? 'text' : 'password'" class="form-control border-2" id="floatingPassword" placeholder="Senha" formControlName="password" required>
+         <label for="floatingPassword">Senha*</label>
+         <i
+            (click)="togglePasswordVisibility()"
+            class="password-visibility"
+            [class]="showPassword ? 'bi bi-eye' : 'bi bi-eye-slash'"
+         ></i>
+         @if (isInvalid('password')) {<div class="text-danger">{{getError('password')}}</div>}
+         <!-- @if (isInvalid('password')) {<div class="text-danger">{{getError('password')}}</div>} -->
+      </div>
+      <div class="form-floating mb-3">
+         <label for="floatingRole">Tipo*</label>
+         <select id="floatingRole" class="form-select border-2" aria-label="Default select example" formControlName="role">
+            <option value="" disabled></option>
+            <option value="user">user</option>
+            <option value="admin">admin</option>
+         </select>
+         @if (isInvalid('role')) {<div class="text-danger">{{getError('role')}}</div>}
+      </div>
+      <div class="form-floating mb-3">
+         <input type="text" class="form-control" id="floatingImageLink" placeholder="https://imagem.com/imagem.png" formControlName="user_img_src">
+         <label for="floatingImageLink">Link de Imagem para perfil (opcional)</label>
+      </div>
+   </div>
+   <div class="modal-footer">
+      <button type="submit" class="btn btn-primary"(submit)="onSubmit()" >
+         {{formStateService.formMode() === 'create' ? 'Cadastrar Usuário' : 'Salvar Alterações'}}
+      </button>
+   </div>
+</form>

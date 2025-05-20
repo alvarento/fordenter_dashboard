@@ -1,0 +1,46 @@
+.text-danger {
+   margin-top: .25rem;
+   font-size: .85rem;
+}
+
+// .form {
+
+//    &__fill-info {
+//       min-height: 432px;
+//    }
+// }
+
+.form-floating {
+   // background-color: red;
+   min-height: 83px;
+}
+
+.ng-touched {
+
+   &.ng-invalid {
+      border-color: #dc3545;
+   }
+
+   &.ng-valid {
+      border-color: green;
+   }
+}
+
+label[for="floatingRole"] {
+   // background-color: red;
+   height: fit-content;
+   padding: 0;
+   font-size: .9rem;
+   left: 10px;
+   top: 8px;
+}
+
+.password-visibility {
+   position: absolute !important;
+   right: 5px;
+   top: 50%;
+   transform: translate(-50%, -50%);
+   font-size: 1.4rem;
+   cursor: pointer;
+   color: darkgray;
+}

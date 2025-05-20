@@ -1,0 +1,36 @@
+<div class="wrap-table">
+   <table class="table">
+      <thead>
+         <tr>
+            <th class="text-center" scope="col">#</th>
+            <th class="text-center" scope="col">Nome</th>
+            <th class="text-center" scope="col">Email</th>
+            <th class="text-center" scope="col">Tipo</th>
+            <th class="text-center" scope="col">Avatar</th>
+            <th class="text-center" scope="col">Ações</th>
+         </tr>
+      </thead>
+      <tbody>
+         @for(user of users(); track user.id) {
+         <tr>
+            <th scope="row">{{user.id}}</th>
+            <td>{{ user.full_name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.role }}</td>
+            <td>
+               <img class="dropdown__profile-img" [ngSrc]="user.user_img_src || '/images/profile-default.png'" width="45"
+                  height="45" alt="Imagem do Usuário" style="border-radius: 50%;" priority>
+            </td>
+            <td class="actions">
+               <button type="button" (click)="onEditUser(user)" class="btn btn-sm btn-secondary me-2">
+                  <i class="bi bi-pencil-fill"></i>
+                  Editar
+               </button>
+               <button class="btn btn-sm btn-danger" (click)="onDeleteUser(user)">
+                  <i class="bi bi-trash-fill"></i> Excluir
+               </button>
+            </td>
+         </tr> }
+      </tbody>
+   </table>
+</div>

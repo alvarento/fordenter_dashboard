@@ -1,0 +1,37 @@
+<!-- Modal -->
+<div #modal class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+   aria-labelledby="staticBackdropLabel" aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">{{modalService.modalTitle()}}</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+         </div>
+         <div class="modal-body">
+            @if (modalService.modalMode() === 'form') {
+            <app-user-form />
+            }
+
+            @if (modalService.modalMode() === 'usersList') {
+            <app-users-list />
+            }
+
+            @if (formStateService.formMode() === 'loading') {
+            <div class="d-flex justify-content-center">
+               <div class="spinner-border" role="status">
+                  <span class="visually-hidden">Loading...</span>
+               </div>
+            </div>
+            }
+
+            @if (formStateService.formMode() === 'success' || formStateService.formMode() === 'error') {
+            <div class="alert" [class]="{
+                    'alert-success': formStateService.formMode() === 'success',
+                    'alert-danger': formStateService.formMode() === 'error'}">
+               {{ formStateService.message() }}
+            </div>
+            }
+         </div>
+      </div>
+   </div>
+</div>

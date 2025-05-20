@@ -1,0 +1,43 @@
+<div class="box-container">
+   <main class="main dashboard" style="height: 100%;">
+
+      <h1 class="dashboard__title">Dashboard FORD</h1>
+
+      @if (selectedCurrentVehicle(); as vehicle) {
+      <div class="dashboard__metrics">
+         <app-stat-card class="stat-card" [label]="'Veículo'">
+            <select (change)="onVehicleChange($event)" class="form-select">
+               @for (car of vehiclesList(); track car.model) {
+               <option
+                  [value]="car.model">{{car.model}}
+               </option>
+               }
+            </select>
+         </app-stat-card>
+
+         <app-stat-card class="stat-card" [label]="'Total de Vendas'">
+            <span class="stat-card__value">{{vehicle.total_sale}}</span>
+            <span class="stat-card__unit">Unid.</span>
+         </app-stat-card>
+
+         <app-stat-card class="stat-card" [label]="'Conectados'">
+            <span class="stat-card__value">{{vehicle.connected}}</span>
+            <span class="stat-card__unit">Unid.</span>
+         </app-stat-card>
+
+         <app-stat-card class="stat-card" [label]="'Update Software'">
+            <span class="stat-card__value">{{vehicle.software_updates}}</span>
+            <span class="stat-card__unit">Unid.</span>
+         </app-stat-card>
+      </div>
+
+      <div class="dashboard__car-image">
+         <img [ngSrc]="vehicle.img_src" [alt]="vehicle.model" style="position: static; max-width: 765px; height: auto;"
+            fill priority />
+      </div>
+      }
+
+      <app-info-table class="dashboard__info-table" />
+
+   </main>
+</div>

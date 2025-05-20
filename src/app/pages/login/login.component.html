@@ -1,0 +1,44 @@
+<div class="login-page">
+   <div class="area-image">
+      <img ngSrc="/images/ranger.png" width="634.95" height="294.65" alt="Ford Ranger" priority>
+   </div>
+   <div class="area-login">
+      <div class="area-login__logo-container">
+         <img class="area-login__logo" ngSrc="/images/ford.png" width="192" height="72.3" alt="Logo Ford" priority>
+      </div>
+      <div class="area-login__form-container">
+         <h1 class="area-login__title">Boas-vindas</h1>
+         <form #loginForm="ngForm" (ngSubmit)="onLogin(loginForm)" class="login-form">
+            <div class="login-form__form-group">
+               <i class="bi bi-person"></i>
+               <input type="email" name="identifier" [(ngModel)]="identifier" class="login-form__input"
+                  placeholder="Insira seu e-mail ou nome de usuário" required>
+            </div>
+            <div class="login-form__form-group">
+               <i class="bi bi-lock"></i>
+               <input [type]="showPassword ? 'text' : 'password'" name="password" [(ngModel)]="password"
+                  class="login-form__input" placeholder="Insira sua senha" required/>
+               <i 
+                  (click)="togglePasswordVisibility()"
+                  class="bi--color-gray"
+                  [class]="showPassword ? 'bi bi-eye' : 'bi bi-eye-slash'"
+               >
+               </i>
+            </div>
+            @if(loginError) {
+            <div class="login-form__error">
+               <i class="bi bi-exclamation-triangle"></i>
+               <span>{{errorMessage}}</span>
+            </div>
+            }
+            <div class="login-form__auto-login">
+               <span>Logar automaticamente</span>
+               <app-toggle-switch
+                  (autoLogin)="handleAutoLogin($event)"
+               />
+            </div>
+            <button class="login-form__button">Entrar</button>
+         </form>
+      </div>
+   </div>
+</div>

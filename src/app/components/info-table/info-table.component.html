@@ -1,0 +1,42 @@
+<table class="info-table">
+   <thead>
+      <tr>
+         <th>Código - Vin</th>
+         <th>Odômetro</th>
+         <th>Nível de Combustível</th>
+         <th>Status</th>
+         <th>Lat.</th>
+         <th>Long.</th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr>
+         <td>
+            <input [formControl]="vinControl" class="info-table__input" type="text" id="vinCode" placeholder="Código - Vin">
+         </td>
+         @if(filteredVehicleData) {
+         <td data-label="Odômetro">{{filteredVehicleData.odometer}}</td>
+         <td data-label="Nível de Combustível">{{filteredVehicleData.fuel_level}}</td>
+         <td data-label="Status">{{filteredVehicleData.status}}</td>
+         <td data-label="Lat.">{{filteredVehicleData.lat}}</td>
+         <td data-label="Long.">{{filteredVehicleData.long}}</td>
+         } @else {
+         <td data-label="Odômetro">
+            <i class="bi bi-dash-lg"></i>
+         </td>
+         <td data-label="Nível de Combustível">
+            <i class="bi bi-dash-lg"></i>
+         </td>
+         <td data-label="Status">
+            <i class="bi bi-dash-lg"></i>
+         </td>
+         <td data-label="Lat.">
+            <i class="bi bi-dash-lg"></i>
+         </td>
+         <td data-label="Long.">
+            <i class="bi bi-dash-lg"></i>
+         </td>
+         }
+      </tr>
+   </tbody>
+</table>

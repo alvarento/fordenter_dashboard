@@ -1,0 +1,75 @@
+@use 'variables' as *;
+
+.info-table {
+   width: 100%;
+   border-collapse: collapse;
+   margin-top: 2rem;
+   font-size: 1rem;
+
+   th,
+   td {
+      padding: 0.8rem;
+      border: 1px solid $primary-color;
+      text-align: center;
+   }
+
+   thead {
+      background-color: $primary-color;
+      color: white;
+   }
+
+   &__input {
+      width: 100%;
+      border: 1px solid #000;
+      border-radius: 5px;
+      padding: 5px;
+   }
+}
+
+@media (max-width: 768px) {
+   .info-table {
+      display: block;
+
+      thead {
+         display: none;
+      }
+
+      tbody,
+      tr,
+      td {
+         display: block !important;
+         width: 100%;
+      }
+
+      tr {
+         margin-bottom: 1rem;
+         border: 1px solid $primary-color;
+         border-radius: 5px;
+         padding: 0.5rem;
+      }
+
+      td {
+         border: none;
+         text-align: right;
+         padding: 0.5rem;
+         position: relative;
+         min-height: 2.5rem;
+
+         &::before {
+            content: attr(data-label);
+            position: absolute;
+            left: 0.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: bold;
+            color: $primary-color;
+            display: block !important;
+         }
+
+         &:empty::after {
+            content: "—";
+            color: #999;
+         }
+      }
+   }
+}
