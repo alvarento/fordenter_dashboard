@@ -1,4 +1,6 @@
 export const environment = {
    production: true,
-   apiUrl: 'NG_API_URL'
+   get apiUrl(): string {
+      return 'NG_API_URL';
+   }
 };
